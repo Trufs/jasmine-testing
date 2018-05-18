@@ -34,5 +34,5 @@ Tests performed by the suite:
 This is a project for Udacity course and it will likely not be developed further.
 
 ### License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/Trufs/arcade-game-project/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Trufs/jasmine-testing/blob/master/LICENSE) file for details.
 
