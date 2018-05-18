@@ -54,7 +54,7 @@ $(function() {
         it('changes visibility when the icon is clicked', function(){
             const event = {
                     type: 'click',
-                }
+                };
             $('.menu-icon-link').trigger(event); //trigger an event happening when user clicks the menu icon
             expect($('body').attr('class')).toBe('');
             $('.menu-icon-link').trigger(event);
@@ -92,7 +92,7 @@ $(function() {
         it('when a new feed is loaded, the content changes', function(){
             const event = {
                     type: 'click',
-                }
+                };
             $('.feed-list').trigger(event); //trigger an event happening when user clicks a link in the menu
             expect($('.feed').html()).not.toEqual(previousContent);
         });
