@@ -11,7 +11,7 @@ No installation is needed. All you need to do is open the index.html file in you
 #### Basic app functionality
 Click on the hamburger icon to open the menu. You can choose a feed from the menu to load new entries. Once you found an entry that interests you, you can click on the link to go to its webpage.
 #### Testing Suite
-At the bottom of the page, you can see Jasmine tests and their results. Code for the tests is available in **./jasmine/spec/feedreader.js**.
+At the bottom of the page, you can see Jasmine tests and their results. Code for the tests is available in [feedreader.js](https://github.com/Trufs/jasmine-testing/blob/master/jasmine/spec/feedreader.js).
 Tests performed by the suite:
 1. Tests if the feeds are defined, and do they contain a name and a url.
 2. Tests if the menu is hidden by default and changes visibility once the menu icon is clicked.
@@ -34,5 +34,5 @@ Tests performed by the suite:
 This is a project for Udacity course and it will likely not be developed further.
 
 ### License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/Trufs/arcade-game-project/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Trufs/jasmine-testing/blob/master/LICENSE) file for details.
 
