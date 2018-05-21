@@ -27,7 +27,8 @@ $(function() {
          */
         it('have a URL defined', function(){
                 allFeeds.forEach(function(feed){
-                expect(feed.url).toBeDefined();
+                    expect(feed.url).toBeDefined();
+                    expect(feed.url.length).not.toBe(0);
                 });
         });
 
@@ -36,7 +37,8 @@ $(function() {
          */
         it('have a name defined', function(){
             allFeeds.forEach(function(feed){
-                expect(feed.name).toBeDefined();
+                    expect(feed.name).toBeDefined();
+                    expect(feed.url.length).not.toBe(0);
             });
         });
     });
@@ -44,10 +46,12 @@ $(function() {
 
     // A suite testing menu visibility.
     describe('The menu', function(){
+        const body = $('body');
 
         // Check if the menu element is hidden by default.
         it('is hidden by default', function(){
-            expect($('body').attr('class')).toBe('menu-hidden');
+            expect((body).hasClass('menu-hidden')).toBe(true);
+            // expect(body.attr('class')).toContain('menu-hidden');
         });
 
          // Check if the menu changes visibility when the menu icon is clicked.
@@ -56,9 +60,9 @@ $(function() {
                     type: 'click',
                 };
             $('.menu-icon-link').trigger(event); //trigger an event happening when user clicks the menu icon
-            expect($('body').attr('class')).toBe('');
+            expect((body).hasClass('menu-hidden')).toBe(false);
             $('.menu-icon-link').trigger(event);
-            expect($('body').attr('class')).toBe('menu-hidden');
+            expect((body).hasClass('menu-hidden')).toBe(true);
         });
     });
 
@@ -74,26 +78,22 @@ $(function() {
          * one .entry element within the .feed container.
          */
         it('there is at least one entry within the feed container', function(){
-            expect(feed.children().toArray().length).not.toBe(0);
+            expect($('.feed .entry').length).not.toBe(0);
         });
     });
 
     //A suite testing loading a different feed.
     describe('New Feed Selection', function(done){
         let previousContent;
-        const id = 1;
-
-        beforeEach(function(done){
-            previousContent = $('.feed').html();
-            loadFeed(id, done);
-        });
 
         //Check if the content changes when a new feed is loaded.
         it('when a new feed is loaded, the content changes', function(){
-            const event = {
-                    type: 'click',
-                };
-            $('.feed-list').trigger(event); //trigger an event happening when user clicks a link in the menu
+            loadFeed(0, function() {
+                previousContent = $('.feed').html();
+                    loadFeed(1, function() {
+                        done();
+                    });
+            });
             expect($('.feed').html()).not.toEqual(previousContent);
         });
     });
